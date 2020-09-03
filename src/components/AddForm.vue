@@ -8,6 +8,7 @@
       v-model="my_imput">
       </b-input>
     </b-input-group>
+    
 
     <b-button @click="addEvent">Add</b-button>
   </b-form>
