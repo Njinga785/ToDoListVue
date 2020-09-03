@@ -1,17 +1,22 @@
 <template>
-  <div id="app">
-<MyJumbotron @addtodo="addToList" @fait="boubou" :list="list"/> c
-</div>
+  <div id="app">  
+  <MyHeader></MyHeader>
+  
+    <MyJumbotron @addtodo="addToList" @fait="boubou" :list="list"/> 
+
+  </div>
 </template>
 
 <script> 
 import MyJumbotron from './components/MyJumbotron.vue'
+import MyHeader from './components/MyHeader.vue'
  //import HelloWorld from './components/HelloWorld.vue'
 //import ListTodo from './components/ListTodo.vue'
 export default {
   name: 'App',
   components: { 
      MyJumbotron, 
+     MyHeader
    
     // HelloWorld
   },
@@ -41,7 +46,8 @@ export default {
         this.list.push(my_todo)
         console.log(task);
       }
-  }
+  }, 
+  
  
 }
 </script>

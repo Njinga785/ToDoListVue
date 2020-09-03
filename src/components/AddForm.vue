@@ -14,19 +14,37 @@
 </template> 
 
 <script> 
+import axios from 'axios'
 export default {
     name: 'AddForm', 
     data() {
         return {
-            my_imput: ''
+            my_imput: '',
+            id: 0
         }
     },
     methods: {
         addEvent(){
+            axios.post(`http://localhost:3000/todo`, {
+                name: this.my_imput, 
+                id: Date.now(), 
+                createdAt: String(new Date()), 
+                todo: true
+            }) 
+            .then(response => {
+                console.log(response); 
+            }) 
+            .catch((error) => {
+                console.log(error);
+            })
             this.$parent.$emit('addtodo', this.my_imput) 
             this.my_imput='';
             
         }
+    },
+    mounted(){
+
+        
     }
 }
 </script>

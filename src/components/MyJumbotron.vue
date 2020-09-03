@@ -1,7 +1,10 @@
-<template>
+<template> 
+
   
-    <div id="myjumb">
-        <b-jumbotron>
+    <div id="myjumb"> 
+        
+        <b-jumbotron> 
+        
         <template v-slot:header>Todo List</template>
 
         <template v-slot:lead>
@@ -17,8 +20,11 @@
 
         <hr class="my-4"> 
 
-      <ListTodo  :list="list" @check="newEvent"/> 
-      <AddForm />
+      <!-- <ListTodo  :list="list" @check="newEvent"/>  
+       
+      <AddForm />  -->
+      <router-view  :key="$route.fullPath"></router-view>
+     
         
 
    
@@ -28,15 +34,17 @@
 </template> 
 
 <script> 
-import ListTodo from './ListTodo.vue' 
-import AddForm from './AddForm.vue' 
-import Sentence from './Sentence.vue'
+//import ListTodo from './ListTodo.vue' 
+//import AddForm from './AddForm.vue' 
+import Sentence from './Sentence.vue' 
+//import MyHeader from './MyHeader.vue'
 export default {
   name: 'MyJumbotron', 
   components: {
-      ListTodo, 
-      AddForm, 
-      Sentence
+      //ListTodo, 
+      //AddForm, 
+      Sentence, 
+     // MyHeader
   },
   props: ['list'],
   methods: {

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 app.use(express.urlencoded({ extended: true })); 
 app.use(bodyParser.json());
+app.use(cors());
 
 
 
@@ -57,13 +58,12 @@ mongoose.connect('mongodb://localhost/todo_data_base',{ useNewUrlParser: true, u
         
     }) 
 
-    app.put('/todo/:id', function(req, res) { 
-        tacheModel.update({id: req.params.id}, function(err, result) {
-            if(err) throw err 
-            console.log(result) 
-            res.json(result)
+    app.put('/todo/:id', async function(req, res) { 
+        // let todoTache = await tacheModel.findOne({id: req.params.id}) 
+        await tacheModel.updateOne({id: req.params.id}, {todo: req.body.todo}) 
+        res.send()
         });
-    });
+    
  
 
 
