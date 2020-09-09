@@ -11,13 +11,15 @@
 </template> 
 <script>
 import SingleTodo from './SingleTodo.vue' 
-import axios from 'axios'
+import axios from 'axios' 
+import store from './store'
 export default {
     name: 'LisTodo', 
     components: {
         SingleTodo
         
     }, 
+    store: store,
     props: {
         whatToDisplay: String,
     },

@@ -4,7 +4,7 @@ import AddForm from './components/AddForm.vue'
 import ListTodo from './components/ListTodo.vue' 
 import axios from 'axios' 
 Vue.prototype.$http = axios 
-import Vue from 'vue'
+//import Vue from 'vue'
 import Vuex from 'vuex' 
 import store from './components/store'
 import 'es6-promise/auto'

@@ -45,8 +45,22 @@ export default {
         let my_todo = {id: this.list.length, name: task, todo: true} 
         this.list.push(my_todo)
         console.log(task);
+      }, 
+      change() {
+           
+            axios.get(`http://localhost:3000/todo`) 
+           .then(response =>{
+               this.list = response.data 
+               if(this.$props.whatToDisplay == 'done') {
+                 this.list = response.data.filter((element) => !element.todo)
+             }else if (this.$props.whatToDisplay == 'todo') {
+                 this.list = response.data.filter((element) => element.todo)
+             } 
+             console.log(this.list)
+             
+           }) 
       }
-  }, 
+  }
   
  
 }
